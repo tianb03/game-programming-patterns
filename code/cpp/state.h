@@ -522,16 +522,16 @@ namespace State
       HeroineState* state_;
     };
 
-    class StandingState : public HeroineState {};
+    class JumpingState : public HeroineState {};
     class DuckingState : public HeroineState {};
 
-    class JumpingState : public HeroineState {
+    class StandingState : public HeroineState {
       void handleInput(Heroine& heroine, Input input)
       {
         //^jump
         if (input == PRESS_B)
         {
-          heroine.state_ = &HeroineState::jumping;
+          heroine.state_ = &HeroineState::jumping; // seems cannot access state_
           heroine.setGraphics(IMAGE_JUMP);
         }
         //^jump
